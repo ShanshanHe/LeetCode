@@ -16,6 +16,7 @@
  * }
  */
 public class Solution {
+    /*
     public boolean isBalanced(TreeNode root) {
         if( root == null ) return true;
         if( Math.abs(depth(root.left) - depth(root.right)) > 1 ) return false;
@@ -24,5 +25,16 @@ public class Solution {
     public int depth(TreeNode node) {
         if( node == null ) return 0;
         return 1+Math.max(depth(node.left),depth(node.right));
+    }
+    */
+    public boolean isBalanced(TreeNode root) {
+        return depth(root) >= 0;
+    }
+    public int depth(TreeNode root) {
+        if( root == null ) return 0;
+        int l = depth(root.left);
+        int r = depth(root.right);
+        if( l < 0 || r < 0 || Math.abs(l-r)>1 ) return -1; //pruning
+        return 1+Math.max(l,r);
     }
 }
