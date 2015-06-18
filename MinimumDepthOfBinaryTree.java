@@ -8,6 +8,7 @@
  * }
  */
 public class Solution {
+    /*
     public int minDepth(TreeNode root) {
         //iteratively
         //bfs, the first leaf it encouter is the leaf that has min depth
@@ -28,5 +29,13 @@ public class Solution {
             }
         }
         return depth;
+    }
+    */
+    public int minDepth(TreeNode root) {
+        //recursively
+        if( root == null ) return 0;
+        if( root.left == null ) return minDepth(root.right)+1;
+        if( root.right == null ) return minDepth(root.left)+1;
+        return Math.min(minDepth(root.left), minDepth(root.right))+1;
     }
 }
