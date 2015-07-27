@@ -7,6 +7,7 @@ How many majority elements could it possibly have?
 */
 /*
 There are at most 2 possible majority elements.
+Moore vote
 */
 
 public class Solution {
